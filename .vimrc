@@ -1,8 +1,10 @@
-" Don't try to be vi compatible
 set nocompatible
 
 " Helps force plugins to load correctly when it is turned back on below
 filetype off
+
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
 
 " TODO: Read about pathogen and vundle
 " TODO: Load plugins here (pathogen or vundle)
@@ -16,25 +18,24 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
-Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Install L9 and avoid a Naming conflict if you've already installed a
-" different version somewhere else.
-" Plugin 'ascenator/L9', {'name': 'newL9'}
-
 " Install NERDTree
 Plugin 'preservim/nerdtree'
+
+Plugin 'mhartington/vim-typings'
+Plugin 'pangloss/vim-javascript'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'peitalin/vim-jsx-typescript'
+Plugin 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plugin 'jparise/vim-graphql'
+
+"Coc Conquer of completiion
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+Plugin 'neoclide/coc-eslint'
+Plugin 'neoclide/coc-prettier'
+let g:coc_global_extensions = [
+  \ 'coc-tsserver'
+  \ ]
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -51,6 +52,13 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 " ****************** End Vundle
+
+"add auto formmater with prettier
+set ballooneval
+autocmd FileType typescript setlocal balloonexpr=tsuquyomi#balloonexpr()
+autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
+autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
 "turn on syntax highlighting
 syntax on
