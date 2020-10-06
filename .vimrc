@@ -6,7 +6,6 @@ filetype off
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
-" TODO: Read about pathogen and vundle
 " TODO: Load plugins here (pathogen or vundle)
 
 " set the runtime path to include Vundle and initialize
