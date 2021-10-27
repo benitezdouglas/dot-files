@@ -52,18 +52,6 @@ filetype plugin indent on
 " TODO: Pick a leader key
 " let mapleader = ","
 
-" Security
-set modelines=0
-
-" Show line numbers
-set number
-
-" Show file stats
-set ruler
-
-" Blink cursor on error instead of beeping
-set visualbell
-
 " Encoding
 set encoding=utf-8
 
