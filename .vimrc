@@ -53,11 +53,6 @@ filetype plugin indent on    " required
 " ****************** End Vundle
 
 "add auto formmater with prettier
-set ballooneval
-autocmd FileType typescript setlocal balloonexpr=tsuquyomi#balloonexpr()
-autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
-autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
-autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
 "turn on syntax highlighting
 syntax on
