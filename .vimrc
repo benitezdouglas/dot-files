@@ -6,6 +6,8 @@ filetype off
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
+" TODO: Load plugins here (pathogen or vundle)
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
